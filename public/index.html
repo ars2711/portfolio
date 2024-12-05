@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/fluent-reveal-effect/dist/fluent-reveal-effect.min.css"
+    />
     <style>
       #background {
         height: calc(100vh - 3vw);
@@ -58,6 +62,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
     <script src="scripts/matrix.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="https://unpkg.com/fluent-reveal-effect/dist/fluent-reveal-effect.min.js"></script>
+    <script>
+      // Apply the effect to the target element
+      const targetElement = document.getElementById("reveal-target");
+      fluentRevealEffect.applyEffect(targetElement, {
+        clickEffect: true,
+        lightColor: "rgba(255, 255, 255, 0.6)",
+        gradientSize: 150,
+        isContainer: true,
+        children: true,
+      });
+    </script>
   </body>
 </html>
 <!--

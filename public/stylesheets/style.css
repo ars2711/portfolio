@@ -205,11 +205,9 @@ div > a > button {
   font-family: "titillium web", sans-serif;
   font-size: 1.5vw;
 }
-
 div > a > button:hover {
   background: #eaeaea96;
   color: var(--black);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 #content {
   display: flex;
