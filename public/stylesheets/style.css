@@ -69,6 +69,12 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 4vw;
   font-variation-settings: "wght" 220;
 }
+h1,
+h2,
+h3,
+h4 {
+  text-shadow: var(--dark-black) 0 0 0.5vw;
+}
 h1 {
   font-size: 6vw;
   margin: 0;
@@ -78,14 +84,6 @@ h1 {
   color: transparent;
   -webkit-text-stroke: 1px var(--light-white);
   font-weight: 200;
-  background: rgb(13, 13, 13);
-  background: linear-gradient(
-    90deg,
-    rgba(13, 13, 13, 0.6) 0%,
-    rgba(32, 32, 32, 0.1) 100%
-  );
-  border-radius: 0.5vw;
-  padding: 0 1.3vw;
 }
 h1 > strong {
   color: var(--white);
@@ -97,13 +95,6 @@ h2 {
   margin: 0;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  background: linear-gradient(
-    90deg,
-    rgba(13, 13, 13, 0.6) 0%,
-    rgba(32, 32, 32, 0.1) 100%
-  );
-  border-radius: 0.5vw;
-  padding: 0 1.3vw;
 }
 h2 > strong {
   font-weight: 500;
@@ -113,13 +104,6 @@ h3 {
   margin: 0;
   font-family: "Titillium Web", sans-serif;
   font-weight: 100;
-  background: linear-gradient(
-    90deg,
-    rgba(13, 13, 13, 0.6) 0%,
-    rgba(32, 32, 32, 0.1) 100%
-  );
-  border-radius: 0.5vw;
-  padding: 0 1.3vw;
 }
 h3 > strong {
   font-weight: 400;
