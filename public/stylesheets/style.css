@@ -73,7 +73,7 @@ h1,
 h2,
 h3,
 h4 {
-  text-shadow: var(--dark-black) 0 0 0.5vw;
+  text-shadow: var(--light-white) 0 0 0.5vw;
 }
 h1 {
   font-size: 6vw;
