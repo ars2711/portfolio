@@ -21,6 +21,7 @@
     </style>
   </head>
   <body>
+    <div id="particles-js"></div>
     <div id="background">
       <nav id="nav">
         <a href="index.html"><div></div></a>
@@ -60,20 +61,8 @@
       </span>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    <script src="scripts/matrix.js"></script>
+    <script src="packages/particles.js-master/particles.js"></script>
     <script src="scripts/script.js"></script>
-    <script src="https://unpkg.com/fluent-reveal-effect/dist/fluent-reveal-effect.min.js"></script>
-    <script>
-      // Apply the effect to the target element
-      const targetElement = document.getElementById("reveal-target");
-      fluentRevealEffect.applyEffect(targetElement, {
-        clickEffect: true,
-        lightColor: "rgba(255, 255, 255, 0.6)",
-        gradientSize: 150,
-        isContainer: true,
-        children: true,
-      });
-    </script>
   </body>
 </html>
 <!--

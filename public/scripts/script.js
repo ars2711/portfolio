@@ -78,3 +78,7 @@ class AtroposComponent extends HTMLElement {
 }
 
 customElements.define("atropos-component", AtroposComponent);
+
+particlesJS.load("particles-js", "packages/particles.json", function () {
+	console.log("callback - particles.js config loaded");
+});
