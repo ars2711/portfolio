@@ -1,0 +1,64 @@
+{% extends 'layout.html' %} {% block page_title %}Gallery{% endblock %} {% block
+content %}
+<section class="gallery py-5">
+  <h1 class="text-center mb-5" data-aos="fade-up">
+    <i class="fa-solid fa-images text-accent me-2"></i>Gallery
+  </h1>
+  <div class="gallery-grid row g-4 justify-content-center">
+    {% for img, alt in [ ('Portfolio_Old.webp', 'Portfolio Old'),
+    ('Pixelb_Main.webp', 'Pixel Battle'), ('Emaars_Main.webp', 'Emaars Main'),
+    ('JIS_12_Main.webp', 'JIS 12 Main'), ('JIS_12_Campaign.webp', 'JIS 12
+    Campaign'), ('JIS_12_Mental_Health.webp', 'JIS 12 Mental Health'),
+    ('JIS_11_Campaign.webp', 'JIS 11 Campaign'), ('JIS_11_Old.webp', 'JIS 11
+    Old'), ('JIS_MUN.webp', 'JIS MUN'), ('Blog_Temp.webp', 'Blog Temp'),
+    ('Posh_Main.webp', 'Posh Main') ] %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div
+        class="glass-bg p-2 rounded-4 shadow-lg gallery-img-card position-relative overflow-hidden"
+        data-aos="zoom-in"
+      >
+        <img
+          src="{{ url_for('static', filename='images/' + img) }}"
+          alt="{{ alt }}"
+          class="img-fluid rounded-3 shadow-sm w-100 gallery-img"
+          style="
+            object-fit: cover;
+            min-height: 180px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s;
+          "
+        />
+        <div
+          class="gallery-img-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+          style="
+            background: rgba(95, 111, 255, 0.12);
+            opacity: 0;
+            transition: opacity 0.3s;
+          "
+        >
+          <i class="fa-solid fa-magnifying-glass fa-2x text-accent"></i>
+        </div>
+        <div class="text-center mt-2 small text-accent">
+          <i class="fa-solid fa-image me-1"></i>{{ alt }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<script>
+  document.querySelectorAll(".gallery-img-card").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.querySelector(".gallery-img").style.transform = "scale(1.07)";
+      this.querySelector(".gallery-img").style.boxShadow =
+        "0 8px 32px 0 rgba(95,111,255,0.18)";
+      this.querySelector(".gallery-img-overlay").style.opacity = 1;
+    });
+    card.addEventListener("mouseleave", function () {
+      this.querySelector(".gallery-img").style.transform = "";
+      this.querySelector(".gallery-img").style.boxShadow = "";
+      this.querySelector(".gallery-img-overlay").style.opacity = 0;
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'layout.html' %} {% block page_title %}Games{% endblock %} {% block
+content %}
+<section class="games container py-5">
+  <h1 class="fw-bold mb-4 d-flex align-items-center gap-2" data-aos="fade-down">
+    <i class="fa-solid fa-gamepad text-accent"></i> Mini Games
+  </h1>
+  <div class="games-list row g-4">
+    <div class="col-12 col-md-4">
+      <div class="game-card glass-bg p-4 rounded-4 h-100" data-aos="zoom-in">
+        <h2 class="mb-3">
+          <i class="fa-solid fa-brain text-accent me-2"></i>Color Memory
+        </h2>
+        <p>
+          Test your memory in the
+          <a href="/fun" class="link-primary"
+            ><i class="fa-solid fa-face-smile-wink me-1"></i>Fun Zone</a
+          >!
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div
+        class="game-card glass-bg p-4 rounded-4 h-100"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+        <h2 class="mb-3">
+          <i class="fa-solid fa-hand-fist text-accent me-2"></i>Rock Paper
+          Scissors
+        </h2>
+        <div id="rps-game" class="d-flex flex-column align-items-center gap-2">
+          <div class="d-flex gap-3 mb-2">
+            <button onclick="playRPS('rock')" class="glass-btn btn btn-lg">
+              <i class="fa-solid fa-hand-rock"></i>
+            </button>
+            <button onclick="playRPS('paper')" class="glass-btn btn btn-lg">
+              <i class="fa-solid fa-hand-paper"></i>
+            </button>
+            <button onclick="playRPS('scissors')" class="glass-btn btn btn-lg">
+              <i class="fa-solid fa-hand-scissors"></i>
+            </button>
+          </div>
+          <div id="rps-result" class="game-result mt-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div
+        class="game-card glass-bg p-4 rounded-4 h-100"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <h2 class="mb-3">
+          <i class="fa-solid fa-dice text-accent me-2"></i>Dice Roller
+        </h2>
+        <button onclick="rollDice()" class="glass-btn btn btn-lg mb-2">
+          <i class="fa-solid fa-dice me-2"></i>Roll Dice
+        </button>
+        <div id="dice-result" class="game-result mt-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function playRPS(user) {
+    const choices = ["rock", "paper", "scissors"];
+    const ai = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+    if (user === ai) result = "It's a tie!";
+    else if (
+      (user === "rock" && ai === "scissors") ||
+      (user === "paper" && ai === "rock") ||
+      (user === "scissors" && ai === "paper")
+    )
+      result = "You win!";
+    else result = "You lose!";
+    document.getElementById(
+      "rps-result"
+    ).textContent = `AI chose ${ai}. ${result}`;
+  }
+  function rollDice() {
+    const roll = Math.floor(Math.random() * 6) + 1;
+    document.getElementById(
+      "dice-result"
+    ).textContent = `You rolled a ${roll}!`;
+  }
+</script>
+<!-- styles moved to style.css -->
+{% endblock %}

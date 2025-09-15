@@ -1,0 +1,107 @@
+{% extends 'layout.html' %} {% block page_title %}FAQ{% endblock %} {% block
+content %}
+<section class="faq container py-5">
+  <h1 class="fw-bold mb-4 d-flex align-items-center gap-2" data-aos="fade-down">
+    <i class="fa-solid fa-circle-question text-accent"></i> Frequently Asked
+    Questions
+  </h1>
+  <div class="faq-list row g-4">
+    <div class="col-12 col-md-6">
+      <div class="faq-item glass-bg p-4 rounded-4 h-100" data-aos="fade-up">
+        <h2 class="mb-2 d-flex align-items-center gap-2">
+          <i class="fa-solid fa-code text-accent"></i>What technologies do you
+          use?
+        </h2>
+        <p>
+          I use Python, Flask, JavaScript, React, Figma, and more. See the
+          <a href="/skills" class="link-primary"
+            ><i class="fa-solid fa-laptop-code me-1"></i>Skills</a
+          >
+          page!
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div
+        class="faq-item glass-bg p-4 rounded-4 h-100"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <h2 class="mb-2 d-flex align-items-center gap-2">
+          <i class="fa-solid fa-file-pdf text-accent"></i>Can I see your resume?
+        </h2>
+        <p>
+          Absolutely!
+          <a
+            href="{{ url_for('static', filename='documents/Muhammad Arsalan Afzal_FE.pdf') }}"
+            target="_blank"
+            class="link-primary"
+            ><i class="fa-solid fa-download me-1"></i>Download it here</a
+          >.
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div
+        class="faq-item glass-bg p-4 rounded-4 h-100"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <h2 class="mb-2 d-flex align-items-center gap-2">
+          <i class="fa-solid fa-envelope text-accent"></i>How can I contact you?
+        </h2>
+        <p>
+          Use the
+          <a href="/contact" class="link-primary"
+            ><i class="fa-solid fa-paper-plane me-1"></i>Contact</a
+          >
+          page or email me at
+          <a href="mailto:arsalanafzal@gmail.com" class="link-primary"
+            ><i class="fa-solid fa-envelope me-1"></i>arsalanafzal@gmail.com</a
+          >.
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div
+        class="faq-item glass-bg p-4 rounded-4 h-100"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <h2 class="mb-2 d-flex align-items-center gap-2">
+          <i class="fa-solid fa-briefcase text-accent"></i>Do you take freelance
+          work?
+        </h2>
+        <p>
+          Yes! I’m open to freelance and collaboration opportunities. Let’s
+          chat!
+        </p>
+      </div>
+    </div>
+    <div class="col-12">
+      <div
+        class="faq-item glass-bg p-4 rounded-4 h-100"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        <h2 class="mb-2 d-flex align-items-center gap-2">
+          <i class="fa-solid fa-star text-accent"></i>What’s your favorite
+          project?
+        </h2>
+        <p>
+          Probably this portfolio! But I love all my creative and fun projects.
+          Check out
+          <a href="/projects" class="link-primary"
+            ><i class="fa-solid fa-folder-open me-1"></i>Projects</a
+          >
+          and
+          <a href="/fun" class="link-primary"
+            ><i class="fa-solid fa-gamepad me-1"></i>Fun Zone</a
+          >.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- styles moved to style.css -->
+{% endblock %}

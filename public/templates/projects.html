@@ -1,0 +1,106 @@
+{% extends 'layout.html' %} {% block page_title %}Projects{% endblock %} {%
+block content %}
+<section class="projects py-5">
+  <h1 class="text-center mb-5" data-aos="fade-up">
+    <i class="fa-solid fa-folder-open text-accent me-2"></i>Projects
+  </h1>
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div
+        class="project-card glass-bg h-100 p-3 p-md-4 rounded-4 shadow-lg d-flex flex-column align-items-center"
+        data-aos="zoom-in"
+      >
+        <img
+          src="{{ url_for('static', filename='images/Portfolio_Old.webp') }}"
+          alt="Modern Portfolio"
+          class="mb-3 rounded-3 shadow-sm project-img"
+          style="width: 100%; max-width: 320px; object-fit: cover"
+        />
+        <h2 class="h4 mb-2">
+          <i class="fa-solid fa-laptop-code text-accent me-2"></i>Modern
+          Portfolio
+        </h2>
+        <p class="mb-2">
+          A sleek, responsive portfolio built with Flask and modern web tech.
+          Features dark/light mode, testimonials, and more.
+        </p>
+        <a href="/gallery" class="project-link btn btn-outline-primary mt-auto"
+          ><i class="fa-solid fa-images me-1"></i>See Gallery</a
+        >
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div
+        class="project-card glass-bg h-100 p-3 p-md-4 rounded-4 shadow-lg d-flex flex-column align-items-center"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+        <img
+          src="{{ url_for('static', filename='images/Pixelb_Main.webp') }}"
+          alt="Pixel Battle Game"
+          class="mb-3 rounded-3 shadow-sm project-img"
+          style="width: 100%; max-width: 320px; object-fit: cover"
+        />
+        <h2 class="h4 mb-2">
+          <i class="fa-solid fa-gamepad text-accent me-2"></i>Pixel Battle Game
+        </h2>
+        <p class="mb-2">
+          A fun browser game with animations and sound effects. Try it in the
+          <a href="/fun" class="link-primary">Fun Zone</a>!
+        </p>
+        <a href="/fun" class="project-link btn btn-outline-primary mt-auto"
+          ><i class="fa-solid fa-play me-1"></i>Play Now</a
+        >
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div
+        class="project-card glass-bg h-100 p-3 p-md-4 rounded-4 shadow-lg d-flex flex-column align-items-center"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <img
+          src="{{ url_for('static', filename='images/Emaars_Main.webp') }}"
+          alt="Design System"
+          class="mb-3 rounded-3 shadow-sm project-img"
+          style="width: 100%; max-width: 320px; object-fit: cover"
+        />
+        <h2 class="h4 mb-2">
+          <i class="fa-solid fa-palette text-accent me-2"></i>Design System
+        </h2>
+        <p class="mb-2">
+          A Figma-powered design system for rapid prototyping and UI
+          consistency. Used in multiple client projects.
+        </p>
+        <a href="/gallery" class="project-link btn btn-outline-primary mt-auto"
+          ><i class="fa-solid fa-palette me-1"></i>See Designs</a
+        >
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div
+        class="project-card glass-bg h-100 p-3 p-md-4 rounded-4 shadow-lg d-flex flex-column align-items-center"
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      >
+        <img
+          src="{{ url_for('static', filename='images/JIS_12_Main.webp') }}"
+          alt="JIS 12 Main"
+          class="mb-3 rounded-3 shadow-sm project-img"
+          style="width: 100%; max-width: 320px; object-fit: cover"
+        />
+        <h2 class="h4 mb-2">
+          <i class="fa-solid fa-bullhorn text-accent me-2"></i>JIS Campaigns
+        </h2>
+        <p class="mb-2">
+          Branding, campaign, and mental health awareness work for JIS. See more
+          in the <a href="/gallery" class="link-primary">Gallery</a>.
+        </p>
+        <a href="/gallery" class="project-link btn btn-outline-primary mt-auto"
+          ><i class="fa-solid fa-images me-1"></i>Gallery</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

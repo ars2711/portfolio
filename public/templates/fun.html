@@ -1,0 +1,155 @@
+{% extends 'layout.html' %} {% block page_title %}Fun Zone{% endblock %} {%
+block content %}
+<section class="fun container py-5">
+  <h1 class="fw-bold mb-3 d-flex align-items-center gap-2" data-aos="fade-down">
+    <i class="fa-solid fa-terminal text-accent"></i> Dev Playground
+  </h1>
+  <p class="mb-4" data-aos="fade-up">
+    Try a live code playground, API tester, or interactive widgets for devs.<br />
+    (The classic color game and jokes are still here for fun!)
+  </p>
+  <div
+    id="game-board"
+    class="game-board glass-bg d-flex justify-content-center gap-3 mb-3"
+    data-aos="zoom-in"
+  >
+    <div class="color-btn" id="red"></div>
+    <div class="color-btn" id="green"></div>
+    <div class="color-btn" id="blue"></div>
+    <div class="color-btn" id="yellow"></div>
+  </div>
+  <button id="start-game" class="glass-btn btn btn-lg mb-3" data-aos="fade-up">
+    <i class="fa-solid fa-play me-2"></i>Start Game
+  </button>
+  <div id="game-status" class="mt-2 mb-4 fw-semibold"></div>
+  <hr class="fun-divider" />
+  <div class="fun-joke-box glass-bg p-4 rounded-4 mt-4" data-aos="fade-up">
+    <button
+      id="joke-btn"
+      class="fun-joke-btn glass-btn btn btn-outline-primary mb-3"
+    >
+      <i class="fa-solid fa-terminal me-2"></i>Random Dev Tip
+    </button>
+    <div id="joke" class="fun-joke"></div>
+    <div class="dev-widgets row g-4 mb-5">
+      <div class="col-12 col-lg-6">
+        <div class="glass-bg p-4 rounded-4 h-100" data-aos="fade-up">
+          <h3 class="mb-3">
+            <i class="fa-solid fa-code text-accent me-2"></i>Live JS Playground
+          </h3>
+          <textarea
+            id="js-playground-input"
+            class="form-control mb-2"
+            rows="4"
+            placeholder="Type JavaScript code here..."
+          ></textarea>
+          <button id="js-playground-run" class="btn btn-primary mb-2">
+            <i class="fa-solid fa-play me-1"></i>Run
+          </button>
+          <pre
+            id="js-playground-output"
+            class="bg-black text-light p-2 rounded-3"
+            style="min-height: 2.5em"
+          ></pre>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div
+          class="glass-bg p-4 rounded-4 h-100"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <h3 class="mb-3">
+            <i class="fa-solid fa-network-wired text-accent me-2"></i>API Tester
+          </h3>
+          <input
+            id="api-url"
+            class="form-control mb-2"
+            placeholder="Enter API URL (GET only)"
+          />
+          <button id="api-test-btn" class="btn btn-primary mb-2">
+            <i class="fa-solid fa-paper-plane me-1"></i>Send
+          </button>
+          <pre
+            id="api-test-output"
+            class="bg-black text-light p-2 rounded-3"
+            style="min-height: 2.5em"
+          ></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const colors = ["red", "green", "blue", "yellow"];
+  let sequence = [],
+    userSeq = [],
+    level = 0,
+    started = false;
+  const statusDiv = document.getElementById("game-status");
+  function nextSequence() {
+    userSeq = [];
+    level++;
+    statusDiv.textContent = `Level ${level}`;
+    const next = colors[Math.floor(Math.random() * 4)];
+    sequence.push(next);
+    let i = 0;
+    function showSeq() {
+      if (i < sequence.length) {
+        const btn = document.getElementById(sequence[i]);
+        btn.classList.add("active");
+        setTimeout(() => {
+          btn.classList.remove("active");
+          i++;
+          setTimeout(showSeq, 300);
+        }, 500);
+      }
+    }
+    showSeq();
+  }
+  function checkUserInput() {
+    for (let i = 0; i < userSeq.length; i++) {
+      if (userSeq[i] !== sequence[i]) {
+        statusDiv.textContent = "Game Over! Try again.";
+        started = false;
+        sequence = [];
+        level = 0;
+        return;
+      }
+    }
+    if (userSeq.length === sequence.length) {
+      setTimeout(nextSequence, 1000);
+    }
+  }
+  document.getElementById("start-game").onclick = function () {
+    if (!started) {
+      started = true;
+      sequence = [];
+      level = 0;
+      nextSequence();
+    }
+  };
+  document.querySelectorAll(".color-btn").forEach((btn) => {
+    btn.onclick = function () {
+      if (!started) return;
+      userSeq.push(this.id);
+      this.classList.add("active");
+      setTimeout(() => this.classList.remove("active"), 200);
+      checkUserInput();
+    };
+  });
+  // Joke feature
+  const jokes = [
+    "Why do programmers prefer dark mode? Because light attracts bugs!",
+    "Why did the developer go broke? Because he used up all his cache.",
+    "Why do JavaScript developers wear glasses? Because they don't C#.",
+    "How do you comfort a JavaScript bug? You console it.",
+    "Why was the computer cold? It left its Windows open!",
+  ];
+  document.getElementById("joke-btn").onclick = function () {
+    const joke = jokes[Math.floor(Math.random() * jokes.length)];
+    document.getElementById("joke").textContent = joke;
+  };
+</script>
+<!-- styles moved to style.css -->
+{% endblock %}

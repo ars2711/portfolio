@@ -1,0 +1,80 @@
+{% extends 'layout.html' %} {% block page_title %}About Me{% endblock %} {%
+block content %}
+<section
+  class="about d-flex flex-column align-items-center justify-content-center py-5"
+  data-aos="fade-up"
+>
+  <div
+    class="glass-bg p-4 p-md-5 rounded-4 shadow-lg about-card w-100"
+    style="max-width: 900px"
+  >
+    <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+      <div class="about-avatar-wrap text-center mb-3 mb-md-0">
+        <img
+          src="{{ url_for('static', filename='images/wht_outline.png') }}"
+          alt="Arsalan's Avatar"
+          class="about-avatar mb-2 rounded-circle shadow"
+          style="
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+          "
+        />
+        <div class="fw-bold mt-2">
+          <i class="fa-solid fa-user-astronaut text-accent me-2"></i>Arsalan
+          Afzal
+        </div>
+      </div>
+      <div>
+        <p class="lead mb-3">
+          Hey! I'm Arsalan, a developer and designer who loves building
+          beautiful, functional, and fun digital experiences. I thrive on
+          learning new things and turning ideas into reality.
+        </p>
+        <ul class="about-list list-unstyled ms-1">
+          <li class="mb-2">
+            <i class="fa-solid fa-code text-accent me-2"></i
+            ><strong>Skills:</strong> Python, JavaScript, Flask, React, UI/UX,
+            Figma, SQL, HTML5, CSS3, 3D & Animation, Game Dev, Music & Audio,
+            Photography, Problem Solving, Teamwork, Fun & Humor
+          </li>
+          <li class="mb-2">
+            <i class="fa-solid fa-gamepad text-accent me-2"></i
+            ><strong>Hobbies:</strong> Gaming, photography, music, exploring new
+            tech, making people smile, and creating interactive web experiences
+          </li>
+          <li class="mb-2">
+            <i class="fa-solid fa-cube text-accent me-2"></i
+            ><strong>Fun Fact:</strong> I can solve a Rubik's cube in under a
+            minute! Also, I love puns, dad jokes, and building mini-games for
+            fun.
+          </li>
+          <li class="mb-2">
+            <i class="fa-solid fa-images text-accent me-2"></i
+            ><strong>Gallery:</strong>
+            <a href="/gallery" class="link-primary">See my visual gallery</a>
+          </li>
+          <li class="mb-2">
+            <i class="fa-solid fa-quote-left text-accent me-2"></i
+            ><strong>Testimonials:</strong>
+            <a href="/testimonials" class="link-primary"
+              >What people say about me</a
+            >
+          </li>
+          <li class="mb-2">
+            <i class="fa-solid fa-file-lines text-accent me-2"></i
+            ><strong>Resume:</strong>
+            <a
+              href="{{ url_for('static', filename='documents/Muhammad Arsalan Afzal_FE.pdf') }}"
+              target="_blank"
+              class="link-primary"
+              >Download PDF</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
